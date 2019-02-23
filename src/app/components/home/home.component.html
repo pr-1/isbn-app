@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+      <div class="first-box">
+          <div class="col-md-4" [formGroup]="formGroup">
+            <h3>Enter The ISBN for Book Details</h3>
+              <input type="number" style="text-align: left" formControlName="isbn" focus required
+              class="form-control"max="9999999999999" min="0"
+              onKeyDown="if(this.value.length==13 && event.keyCode>47 && event.keyCode < 58)return false;">
+              <div class="submit-button">
+                <button (click)="searchBookDetail()">Search</button>
+              </div>
+          </div>
+        </div>
+        <div class="second-box">
+          <div class="loader" *ngIf="isLoading">
+            <i class="fa fa-spinner fa-spin" style="font-size:48px;"></i>
+          </div>
+          <div class="data" *ngIf="!isLoading && isSearchedfirstTime && !showError">
+            <div><img [src]="bookDetail.coverThumb" alt="No Cover For this book"></div><br>
+            <div><span><b>Title:</b>  {{bookDetail.title}}</span></div><br>
+            <div><span><b>Description:</b>  {{bookDetail.description}}</span></div><br>
+            <div><span><b>Language Code:</b>  {{bookDetail.languageCode}}</span></div><br>
+            <div><span><b>ISBN:</b>  {{bookDetail.ISBN}}</span></div><br>
+            <div><span><b>Subjects:</b><span *ngFor="let subject of bookDetail.subjects"> {{subject}}<br></span></span></div><br>
+            <div><span><b>Authors:</b><span *ngFor="let author of bookDetail.authors"> {{author.Name}}<br></span></span></div>
+          </div>
+          <div class="search" *ngIf="!isSearchedfirstTime">
+            <p>Please Enter a ISBN for seeing the book details!</p>
+          </div>
+          <div class="data" *ngIf="showError">
+            {{errorMessage || 'Some Error Occured' }}
+          </div>
+        </div>
+  </div>
+</div>

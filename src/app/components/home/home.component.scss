@@ -1,0 +1,43 @@
+.container {
+  padding-top: 20px;
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0 20px;
+
+    .first-box {
+      height: 200px;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid black;
+
+      input {
+        width: 300px;
+      }
+
+      input[type=number]::-webkit-inner-spin-button,
+      input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0;
+      }
+    }
+
+    .second-box {
+      margin: 10px;
+      padding: 10px;
+      height: 600px;
+      width: 600px;
+      border: 1px solid black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: stretch;
+     .data {
+      }
+    }
+  }
+}
