@@ -16,13 +16,13 @@
             <i class="fa fa-spinner fa-spin" style="font-size:48px;"></i>
           </div>
           <div class="data" *ngIf="!isLoading && isSearchedfirstTime && !showError">
-            <div><img [src]="bookDetail.coverThumb" alt="No Cover For this book"></div><br>
-            <div><span><b>Title:</b>  {{bookDetail.title}}</span></div><br>
-            <div><span><b>Description:</b>  {{bookDetail.description}}</span></div><br>
-            <div><span><b>Language Code:</b>  {{bookDetail.languageCode}}</span></div><br>
-            <div><span><b>ISBN:</b>  {{bookDetail.ISBN}}</span></div><br>
-            <div><span><b>Subjects:</b><span *ngFor="let subject of bookDetail.subjects"> {{subject}}<br></span></span></div><br>
-            <div><span><b>Authors:</b><span *ngFor="let author of bookDetail.authors"> {{author.Name}}<br></span></span></div>
+            <div *ngIf="!!bookDetail.coverThumb"><img [src]="bookDetail.coverThumb" alt="No Cover For this book"></div><br>
+            <div *ngIf="!!bookDetail.title"><span><b>Title:</b>  {{bookDetail.title}}</span></div><br>
+            <div *ngIf="!!bookDetail.description"><span><b>Description:</b>  {{bookDetail.description}}</span></div><br>
+            <div *ngIf="!!bookDetail.languageCode"><span><b>Language Code:</b>  {{bookDetail.languageCode}}</span></div><br>
+            <div *ngIf="!!bookDetail.ISBN"><span><b>ISBN:</b>  {{bookDetail.ISBN}}</span></div><br>
+            <div *ngIf="!!bookDetail.subjects.length"><span><b>Subjects:</b><span *ngFor="let subject of bookDetail.subjects"> {{subject}}<br></span></span></div><br>
+            <div *ngIf="!!bookDetail.authors.length"><span><b>Authors:</b><span *ngFor="let author of bookDetail.authors"> {{author.Name}}<br></span></span></div>
           </div>
           <div class="search" *ngIf="!isSearchedfirstTime">
             <p>Please Enter a ISBN for seeing the book details!</p>
